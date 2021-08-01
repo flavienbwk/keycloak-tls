@@ -2,6 +2,8 @@
 
 TLS-configured Keycloak instance with Postgres and Docker
 
+Current Keycloak version : `15.0.0`
+
 ## Generate certificate
 
 First, copy and edit the `.env` file :
@@ -18,7 +20,7 @@ mkdir -p certs/{ca,keycloak}
 # Choose an appropriate DN
 KEYCLOAK_CERTS_DN="/C=FR/ST=IDF/L=PARIS/O=EXAMPLE"
 
-# Generate root CA (you can ignore if you have already one)
+# Generate root CA (ignore if you already have one)
 openssl genrsa -out certs/ca/ca.key 2048
 openssl req -new -x509 -sha256 -days 1095 -subj "$KEYCLOAK_CERTS_DN/CN=CA" -key certs/ca/ca.key -out certs/ca/ca.pem
 
